@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="PWContext">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="Model.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PW_Answers">
+      <EntityTypeMapping TypeName="Model.PW_Answers">
+        <MappingFragment StoreEntitySet="PW_Answers">
+          <ScalarProperty Name="AnswerID" ColumnName="AnswerID" />
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+          <ScalarProperty Name="AnswerDesc" ColumnName="AnswerDesc" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsCorrect" ColumnName="IsCorrect" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PW_Examinees">
+      <EntityTypeMapping TypeName="Model.PW_Examinees">
+        <MappingFragment StoreEntitySet="PW_Examinees">
+          <ScalarProperty Name="ExamineeID" ColumnName="ExamineeID" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="CodeNum" ColumnName="CodeNum" />
+          <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+          <ScalarProperty Name="DateCompleted" ColumnName="DateCompleted" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="Items" ColumnName="Items" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PW_Leaders">
+      <EntityTypeMapping TypeName="Model.PW_Leaders">
+        <MappingFragment StoreEntitySet="PW_Leaders">
+          <ScalarProperty Name="LeaderID" ColumnName="LeaderID" />
+          <ScalarProperty Name="LeaderName" ColumnName="LeaderName" />
+          <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+          <ScalarProperty Name="LeaderResourceID" ColumnName="LeaderResourceID" />
+          <ScalarProperty Name="ManagerResourceID" ColumnName="ManagerResourceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PW_Persons">
+      <EntityTypeMapping TypeName="Model.PW_Persons">
+        <MappingFragment StoreEntitySet="PW_Persons">
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="WorkDayNum" ColumnName="WorkDayNum" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PW_PersonTeams">
+      <EntityTypeMapping TypeName="Model.PW_PersonTeams">
+        <MappingFragment StoreEntitySet="PW_PersonTeams">
+          <ScalarProperty Name="PersonTeamID" ColumnName="PersonTeamID" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+          <ScalarProperty Name="LeaderID" ColumnName="LeaderID" />
+          <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PW_Questions">
+      <EntityTypeMapping TypeName="Model.PW_Questions">
+        <MappingFragment StoreEntitySet="PW_Questions">
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+          <ScalarProperty Name="QuestionDesc" ColumnName="QuestionDesc" />
+          <ScalarProperty Name="IsCommon" ColumnName="IsCommon" />
+          <ScalarProperty Name="IsMultipleAns" ColumnName="IsMultipleAns" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PW_QuizTags">
+      <EntityTypeMapping TypeName="Model.PW_QuizTags">
+        <MappingFragment StoreEntitySet="PW_QuizTags">
+          <ScalarProperty Name="QuizTagID" ColumnName="QuizTagID" />
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+          <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PW_Resources">
+      <EntityTypeMapping TypeName="Model.PW_Resources">
+        <MappingFragment StoreEntitySet="PW_Resources">
+          <ScalarProperty Name="ResourceID" ColumnName="ResourceID" />
+          <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />
+          <ScalarProperty Name="ResourcePath" ColumnName="ResourcePath" />
+          <ScalarProperty Name="ResourceCategory" ColumnName="ResourceCategory" />
+          <ScalarProperty Name="IsUrl" ColumnName="IsUrl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PW_Roles">
+      <EntityTypeMapping TypeName="Model.PW_Roles">
+        <MappingFragment StoreEntitySet="PW_Roles">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleDesc" ColumnName="RoleDesc" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PW_Subjects">
+      <EntityTypeMapping TypeName="Model.PW_Subjects">
+        <MappingFragment StoreEntitySet="PW_Subjects">
+          <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+          <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PW_TeamResources">
+      <EntityTypeMapping TypeName="Model.PW_TeamResources">
+        <MappingFragment StoreEntitySet="PW_TeamResources">
+          <ScalarProperty Name="TeamResourceID" ColumnName="TeamResourceID" />
+          <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+          <ScalarProperty Name="ResourceID" ColumnName="ResourceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PW_Teams">
+      <EntityTypeMapping TypeName="Model.PW_Teams">
+        <MappingFragment StoreEntitySet="PW_Teams">
+          <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+          <ScalarProperty Name="TeamDesc" ColumnName="TeamDesc" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PW_TemporaryUsers">
+      <EntityTypeMapping TypeName="Model.PW_TemporaryUsers">
+        <MappingFragment StoreEntitySet="PW_TemporaryUsers">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+          <ScalarProperty Name="LeaderID" ColumnName="LeaderID" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="QuizScore" ColumnName="QuizScore" />
+          <ScalarProperty Name="QuizItem" ColumnName="QuizItem" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PW_ViewEmployeeScore">
+      <EntityTypeMapping TypeName="Model.PW_ViewEmployeeScore">
+        <MappingFragment StoreEntitySet="PW_ViewEmployeeScore">
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="Items" ColumnName="Items" />
+          <ScalarProperty Name="DateCompleted" ColumnName="DateCompleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PW_VW_QUESTIONS">
+      <EntityTypeMapping TypeName="Model.PW_VW_QUESTIONS">
+        <MappingFragment StoreEntitySet="PW_VW_QUESTIONS">
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+          <ScalarProperty Name="QuestionDesc" ColumnName="QuestionDesc" />
+          <ScalarProperty Name="IsCommon" ColumnName="IsCommon" />
+          <ScalarProperty Name="IsMultipleAns" ColumnName="IsMultipleAns" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="PW_GetCurrentUser" FunctionName="Model.Store.PW_GetCurrentUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.PW_GetCurrentUser_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+          <ScalarProperty Name="LeaderID" ColumnName="LeaderID" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="QuizScore" ColumnName="QuizScore" />
+          <ScalarProperty Name="QuizItem" ColumnName="QuizItem" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="PW_GetResourcePath" FunctionName="Model.Store.PW_GetResourcePath">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.PW_GetResourcePath_Result">
+          <ScalarProperty Name="ResourcePath" ColumnName="ResourcePath" />
+          <ScalarProperty Name="ResourceCategory" ColumnName="ResourceCategory" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="PW_GetResourcePath2" FunctionName="Model.Store.PW_GetResourcePath2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.PW_GetResourcePath2_Result">
+          <ScalarProperty Name="ResourcePath" ColumnName="ResourcePath" />
+          <ScalarProperty Name="ResourceCategory" ColumnName="ResourceCategory" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+          <ScalarProperty Name="LeaderID" ColumnName="LeaderID" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="QuizScore" ColumnName="QuizScore" />
+          <ScalarProperty Name="QuizItem" ColumnName="QuizItem" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="PW_GetVideo" FunctionName="Model.Store.PW_GetVideo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.PW_GetVideo_Result">
+          <ScalarProperty Name="ResourcePath" ColumnName="ResourcePath" />
+          <ScalarProperty Name="ResourceCategory" ColumnName="ResourceCategory" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

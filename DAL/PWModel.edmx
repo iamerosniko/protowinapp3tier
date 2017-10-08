@@ -1,0 +1,707 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_Answers">
+          <Key>
+            <PropertyRef Name="AnswerID" />
+          </Key>
+          <Property Name="AnswerID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="QuestionID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AnswerDesc" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsCorrect" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_Examinees">
+          <Key>
+            <PropertyRef Name="ExamineeID" />
+          </Key>
+          <Property Name="ExamineeID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PersonID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CodeNum" Type="int" />
+          <Property Name="SubjectID" Type="uniqueidentifier" />
+          <Property Name="DateCompleted" Type="datetime" />
+          <Property Name="Score" Type="int" Nullable="false" />
+          <Property Name="Items" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_Leaders">
+          <Key>
+            <PropertyRef Name="LeaderID" />
+          </Key>
+          <Property Name="LeaderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LeaderName" Type="nvarchar(max)" />
+          <Property Name="ManagerID" Type="int" />
+          <Property Name="LeaderResourceID" Type="uniqueidentifier" />
+          <Property Name="ManagerResourceID" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="PW_Persons">
+          <Key>
+            <PropertyRef Name="PersonID" />
+          </Key>
+          <Property Name="PersonID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar(max)" />
+          <Property Name="Lastname" Type="nvarchar(max)" />
+          <Property Name="Username" Type="nvarchar(max)" />
+          <Property Name="WorkDayNum" Type="nvarchar(max)" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_PersonTeams">
+          <Key>
+            <PropertyRef Name="PersonTeamID" />
+          </Key>
+          <Property Name="PersonTeamID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PersonID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TeamID" Type="uniqueidentifier" />
+          <Property Name="LeaderID" Type="uniqueidentifier" />
+          <Property Name="EffectiveDate" Type="datetime" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_Questions">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="QuestionID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="QuestionDesc" Type="nvarchar(max)" />
+          <Property Name="IsCommon" Type="bit" Nullable="false" />
+          <Property Name="IsMultipleAns" Type="bit" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_QuizTags">
+          <Key>
+            <PropertyRef Name="QuizTagID" />
+          </Key>
+          <Property Name="QuizTagID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="QuestionID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SubjectID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_Resources">
+          <Key>
+            <PropertyRef Name="ResourceID" />
+          </Key>
+          <Property Name="ResourceID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ResourceName" Type="nvarchar(max)" />
+          <Property Name="ResourcePath" Type="nvarchar(max)" />
+          <Property Name="ResourceCategory" Type="nvarchar(max)" />
+          <Property Name="IsUrl" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_Roles">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleDesc" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_Subjects">
+          <Key>
+            <PropertyRef Name="SubjectID" />
+          </Key>
+          <Property Name="SubjectID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SubjectName" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_TeamResources">
+          <Key>
+            <PropertyRef Name="TeamResourceID" />
+          </Key>
+          <Property Name="TeamResourceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TeamID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ResourceID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_Teams">
+          <Key>
+            <PropertyRef Name="TeamID" />
+          </Key>
+          <Property Name="TeamID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TeamDesc" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_TemporaryUsers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar(max)" />
+          <Property Name="LastName" Type="nvarchar(max)" />
+          <Property Name="TeamID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LeaderID" Type="int" Nullable="false" />
+          <Property Name="Username" Type="nvarchar(max)" />
+          <Property Name="QuizScore" Type="int" Nullable="false" />
+          <Property Name="QuizItem" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ProjectWorkplaceAzureContext-20170818144918.dbo.PW_ViewEmployeeScore' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PW_ViewEmployeeScore">
+          <Key>
+            <PropertyRef Name="Score" />
+            <PropertyRef Name="Items" />
+          </Key>
+          <Property Name="Username" Type="nvarchar(max)" />
+          <Property Name="Score" Type="int" Nullable="false" />
+          <Property Name="Items" Type="int" Nullable="false" />
+          <Property Name="DateCompleted" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ProjectWorkplaceAzureContext-20170818144918.dbo.PW_VW_QUESTIONS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PW_VW_QUESTIONS">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+            <PropertyRef Name="IsCommon" />
+            <PropertyRef Name="IsMultipleAns" />
+            <PropertyRef Name="IsActive" />
+          </Key>
+          <Property Name="QuestionID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="QuestionDesc" Type="nvarchar(max)" />
+          <Property Name="IsCommon" Type="bit" Nullable="false" />
+          <Property Name="IsMultipleAns" Type="bit" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <Function Name="PW_GetCurrentUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="PW_GetResourcePath" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="resourceCategory" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="PW_GetResourcePath2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="resourceCategory" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="PW_GetVideo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="isLeader" Type="bit" Mode="In" />
+        </Function>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PW_Answers" EntityType="Self.PW_Answers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PW_Examinees" EntityType="Self.PW_Examinees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PW_Leaders" EntityType="Self.PW_Leaders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PW_Persons" EntityType="Self.PW_Persons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PW_PersonTeams" EntityType="Self.PW_PersonTeams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PW_Questions" EntityType="Self.PW_Questions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PW_QuizTags" EntityType="Self.PW_QuizTags" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PW_Resources" EntityType="Self.PW_Resources" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PW_Roles" EntityType="Self.PW_Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PW_Subjects" EntityType="Self.PW_Subjects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PW_TeamResources" EntityType="Self.PW_TeamResources" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PW_Teams" EntityType="Self.PW_Teams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PW_TemporaryUsers" EntityType="Self.PW_TemporaryUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PW_ViewEmployeeScore" EntityType="Self.PW_ViewEmployeeScore" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PW_ViewEmployeeScore].[Username] AS [Username], 
+    [PW_ViewEmployeeScore].[Score] AS [Score], 
+    [PW_ViewEmployeeScore].[Items] AS [Items], 
+    [PW_ViewEmployeeScore].[DateCompleted] AS [DateCompleted]
+    FROM [dbo].[PW_ViewEmployeeScore] AS [PW_ViewEmployeeScore]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PW_VW_QUESTIONS" EntityType="Self.PW_VW_QUESTIONS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PW_VW_QUESTIONS].[QuestionID] AS [QuestionID], 
+    [PW_VW_QUESTIONS].[QuestionDesc] AS [QuestionDesc], 
+    [PW_VW_QUESTIONS].[IsCommon] AS [IsCommon], 
+    [PW_VW_QUESTIONS].[IsMultipleAns] AS [IsMultipleAns], 
+    [PW_VW_QUESTIONS].[IsActive] AS [IsActive]
+    FROM [dbo].[PW_VW_QUESTIONS] AS [PW_VW_QUESTIONS]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_Answers">
+          <Key>
+            <PropertyRef Name="AnswerID" />
+          </Key>
+          <Property Name="AnswerID" Type="Guid" Nullable="false" />
+          <Property Name="QuestionID" Type="Guid" Nullable="false" />
+          <Property Name="AnswerDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsCorrect" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_Examinees">
+          <Key>
+            <PropertyRef Name="ExamineeID" />
+          </Key>
+          <Property Name="ExamineeID" Type="Guid" Nullable="false" />
+          <Property Name="PersonID" Type="Guid" Nullable="false" />
+          <Property Name="CodeNum" Type="Int32" />
+          <Property Name="SubjectID" Type="Guid" />
+          <Property Name="DateCompleted" Type="DateTime" Precision="3" />
+          <Property Name="Score" Type="Int32" Nullable="false" />
+          <Property Name="Items" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_Leaders">
+          <Key>
+            <PropertyRef Name="LeaderID" />
+          </Key>
+          <Property Name="LeaderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LeaderName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ManagerID" Type="Int32" />
+          <Property Name="LeaderResourceID" Type="Guid" />
+          <Property Name="ManagerResourceID" Type="Guid" />
+        </EntityType>
+        <EntityType Name="PW_Persons">
+          <Key>
+            <PropertyRef Name="PersonID" />
+          </Key>
+          <Property Name="PersonID" Type="Guid" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Lastname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WorkDayNum" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_PersonTeams">
+          <Key>
+            <PropertyRef Name="PersonTeamID" />
+          </Key>
+          <Property Name="PersonTeamID" Type="Guid" Nullable="false" />
+          <Property Name="PersonID" Type="Guid" Nullable="false" />
+          <Property Name="TeamID" Type="Guid" />
+          <Property Name="LeaderID" Type="Guid" />
+          <Property Name="EffectiveDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_Questions">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="QuestionID" Type="Guid" Nullable="false" />
+          <Property Name="QuestionDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsCommon" Type="Boolean" Nullable="false" />
+          <Property Name="IsMultipleAns" Type="Boolean" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_QuizTags">
+          <Key>
+            <PropertyRef Name="QuizTagID" />
+          </Key>
+          <Property Name="QuizTagID" Type="Guid" Nullable="false" />
+          <Property Name="QuestionID" Type="Guid" Nullable="false" />
+          <Property Name="SubjectID" Type="Guid" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_Resources">
+          <Key>
+            <PropertyRef Name="ResourceID" />
+          </Key>
+          <Property Name="ResourceID" Type="Guid" Nullable="false" />
+          <Property Name="ResourceName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ResourcePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ResourceCategory" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsUrl" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_Roles">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_Subjects">
+          <Key>
+            <PropertyRef Name="SubjectID" />
+          </Key>
+          <Property Name="SubjectID" Type="Guid" Nullable="false" />
+          <Property Name="SubjectName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_TeamResources">
+          <Key>
+            <PropertyRef Name="TeamResourceID" />
+          </Key>
+          <Property Name="TeamResourceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TeamID" Type="Guid" Nullable="false" />
+          <Property Name="ResourceID" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_Teams">
+          <Key>
+            <PropertyRef Name="TeamID" />
+          </Key>
+          <Property Name="TeamID" Type="Guid" Nullable="false" />
+          <Property Name="TeamDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_TemporaryUsers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TeamID" Type="Guid" Nullable="false" />
+          <Property Name="LeaderID" Type="Int32" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="QuizScore" Type="Int32" Nullable="false" />
+          <Property Name="QuizItem" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_ViewEmployeeScore">
+          <Key>
+            <PropertyRef Name="Score" />
+            <PropertyRef Name="Items" />
+          </Key>
+          <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Score" Type="Int32" Nullable="false" />
+          <Property Name="Items" Type="Int32" Nullable="false" />
+          <Property Name="DateCompleted" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PW_VW_QUESTIONS">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+            <PropertyRef Name="IsCommon" />
+            <PropertyRef Name="IsMultipleAns" />
+            <PropertyRef Name="IsActive" />
+          </Key>
+          <Property Name="QuestionID" Type="Guid" Nullable="false" />
+          <Property Name="QuestionDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsCommon" Type="Boolean" Nullable="false" />
+          <Property Name="IsMultipleAns" Type="Boolean" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="PWContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="PW_Answers" EntityType="Self.PW_Answers" />
+          <EntitySet Name="PW_Examinees" EntityType="Self.PW_Examinees" />
+          <EntitySet Name="PW_Leaders" EntityType="Self.PW_Leaders" />
+          <EntitySet Name="PW_Persons" EntityType="Self.PW_Persons" />
+          <EntitySet Name="PW_PersonTeams" EntityType="Self.PW_PersonTeams" />
+          <EntitySet Name="PW_Questions" EntityType="Self.PW_Questions" />
+          <EntitySet Name="PW_QuizTags" EntityType="Self.PW_QuizTags" />
+          <EntitySet Name="PW_Resources" EntityType="Self.PW_Resources" />
+          <EntitySet Name="PW_Roles" EntityType="Self.PW_Roles" />
+          <EntitySet Name="PW_Subjects" EntityType="Self.PW_Subjects" />
+          <EntitySet Name="PW_TeamResources" EntityType="Self.PW_TeamResources" />
+          <EntitySet Name="PW_Teams" EntityType="Self.PW_Teams" />
+          <EntitySet Name="PW_TemporaryUsers" EntityType="Self.PW_TemporaryUsers" />
+          <EntitySet Name="PW_ViewEmployeeScore" EntityType="Self.PW_ViewEmployeeScore" />
+          <EntitySet Name="PW_VW_QUESTIONS" EntityType="Self.PW_VW_QUESTIONS" />
+          <FunctionImport Name="PW_GetCurrentUser" ReturnType="Collection(Model.PW_GetCurrentUser_Result)">
+            <Parameter Name="username" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PW_GetResourcePath" ReturnType="Collection(Model.PW_GetResourcePath_Result)">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="resourceCategory" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PW_GetResourcePath2" ReturnType="Collection(Model.PW_GetResourcePath2_Result)">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="resourceCategory" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PW_GetVideo" ReturnType="Collection(Model.PW_GetVideo_Result)">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="isLeader" Mode="In" Type="Boolean" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="PW_GetCurrentUser_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="true" />
+          <Property Type="String" Name="LastName" Nullable="true" />
+          <Property Type="Guid" Name="TeamID" Nullable="false" />
+          <Property Type="Int32" Name="LeaderID" Nullable="false" />
+          <Property Type="String" Name="Username" Nullable="true" />
+          <Property Type="Int32" Name="QuizScore" Nullable="false" />
+          <Property Type="Int32" Name="QuizItem" Nullable="false" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="PW_GetResourcePath_Result">
+          <Property Type="String" Name="ResourcePath" Nullable="true" />
+          <Property Type="String" Name="ResourceCategory" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="PW_GetResourcePath2_Result">
+          <Property Type="String" Name="ResourcePath" Nullable="true" />
+          <Property Type="String" Name="ResourceCategory" Nullable="true" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="true" />
+          <Property Type="String" Name="LastName" Nullable="true" />
+          <Property Type="Guid" Name="TeamID" Nullable="false" />
+          <Property Type="Int32" Name="LeaderID" Nullable="false" />
+          <Property Type="String" Name="Username" Nullable="true" />
+          <Property Type="Int32" Name="QuizScore" Nullable="false" />
+          <Property Type="Int32" Name="QuizItem" Nullable="false" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="PW_GetVideo_Result">
+          <Property Type="String" Name="ResourcePath" Nullable="true" />
+          <Property Type="String" Name="ResourceCategory" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="PWContext">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="Model.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PW_Answers">
+            <EntityTypeMapping TypeName="Model.PW_Answers">
+              <MappingFragment StoreEntitySet="PW_Answers">
+                <ScalarProperty Name="AnswerID" ColumnName="AnswerID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="AnswerDesc" ColumnName="AnswerDesc" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsCorrect" ColumnName="IsCorrect" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PW_Examinees">
+            <EntityTypeMapping TypeName="Model.PW_Examinees">
+              <MappingFragment StoreEntitySet="PW_Examinees">
+                <ScalarProperty Name="ExamineeID" ColumnName="ExamineeID" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="CodeNum" ColumnName="CodeNum" />
+                <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+                <ScalarProperty Name="DateCompleted" ColumnName="DateCompleted" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Items" ColumnName="Items" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PW_Leaders">
+            <EntityTypeMapping TypeName="Model.PW_Leaders">
+              <MappingFragment StoreEntitySet="PW_Leaders">
+                <ScalarProperty Name="LeaderID" ColumnName="LeaderID" />
+                <ScalarProperty Name="LeaderName" ColumnName="LeaderName" />
+                <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+                <ScalarProperty Name="LeaderResourceID" ColumnName="LeaderResourceID" />
+                <ScalarProperty Name="ManagerResourceID" ColumnName="ManagerResourceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PW_Persons">
+            <EntityTypeMapping TypeName="Model.PW_Persons">
+              <MappingFragment StoreEntitySet="PW_Persons">
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="WorkDayNum" ColumnName="WorkDayNum" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PW_PersonTeams">
+            <EntityTypeMapping TypeName="Model.PW_PersonTeams">
+              <MappingFragment StoreEntitySet="PW_PersonTeams">
+                <ScalarProperty Name="PersonTeamID" ColumnName="PersonTeamID" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="LeaderID" ColumnName="LeaderID" />
+                <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PW_Questions">
+            <EntityTypeMapping TypeName="Model.PW_Questions">
+              <MappingFragment StoreEntitySet="PW_Questions">
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="QuestionDesc" ColumnName="QuestionDesc" />
+                <ScalarProperty Name="IsCommon" ColumnName="IsCommon" />
+                <ScalarProperty Name="IsMultipleAns" ColumnName="IsMultipleAns" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PW_QuizTags">
+            <EntityTypeMapping TypeName="Model.PW_QuizTags">
+              <MappingFragment StoreEntitySet="PW_QuizTags">
+                <ScalarProperty Name="QuizTagID" ColumnName="QuizTagID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PW_Resources">
+            <EntityTypeMapping TypeName="Model.PW_Resources">
+              <MappingFragment StoreEntitySet="PW_Resources">
+                <ScalarProperty Name="ResourceID" ColumnName="ResourceID" />
+                <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />
+                <ScalarProperty Name="ResourcePath" ColumnName="ResourcePath" />
+                <ScalarProperty Name="ResourceCategory" ColumnName="ResourceCategory" />
+                <ScalarProperty Name="IsUrl" ColumnName="IsUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PW_Roles">
+            <EntityTypeMapping TypeName="Model.PW_Roles">
+              <MappingFragment StoreEntitySet="PW_Roles">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="RoleDesc" ColumnName="RoleDesc" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PW_Subjects">
+            <EntityTypeMapping TypeName="Model.PW_Subjects">
+              <MappingFragment StoreEntitySet="PW_Subjects">
+                <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+                <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PW_TeamResources">
+            <EntityTypeMapping TypeName="Model.PW_TeamResources">
+              <MappingFragment StoreEntitySet="PW_TeamResources">
+                <ScalarProperty Name="TeamResourceID" ColumnName="TeamResourceID" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="ResourceID" ColumnName="ResourceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PW_Teams">
+            <EntityTypeMapping TypeName="Model.PW_Teams">
+              <MappingFragment StoreEntitySet="PW_Teams">
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="TeamDesc" ColumnName="TeamDesc" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PW_TemporaryUsers">
+            <EntityTypeMapping TypeName="Model.PW_TemporaryUsers">
+              <MappingFragment StoreEntitySet="PW_TemporaryUsers">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="LeaderID" ColumnName="LeaderID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="QuizScore" ColumnName="QuizScore" />
+                <ScalarProperty Name="QuizItem" ColumnName="QuizItem" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PW_ViewEmployeeScore">
+            <EntityTypeMapping TypeName="Model.PW_ViewEmployeeScore">
+              <MappingFragment StoreEntitySet="PW_ViewEmployeeScore">
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Items" ColumnName="Items" />
+                <ScalarProperty Name="DateCompleted" ColumnName="DateCompleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PW_VW_QUESTIONS">
+            <EntityTypeMapping TypeName="Model.PW_VW_QUESTIONS">
+              <MappingFragment StoreEntitySet="PW_VW_QUESTIONS">
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="QuestionDesc" ColumnName="QuestionDesc" />
+                <ScalarProperty Name="IsCommon" ColumnName="IsCommon" />
+                <ScalarProperty Name="IsMultipleAns" ColumnName="IsMultipleAns" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PW_GetCurrentUser" FunctionName="Model.Store.PW_GetCurrentUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.PW_GetCurrentUser_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="LeaderID" ColumnName="LeaderID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="QuizScore" ColumnName="QuizScore" />
+                <ScalarProperty Name="QuizItem" ColumnName="QuizItem" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PW_GetResourcePath" FunctionName="Model.Store.PW_GetResourcePath">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.PW_GetResourcePath_Result">
+                <ScalarProperty Name="ResourcePath" ColumnName="ResourcePath" />
+                <ScalarProperty Name="ResourceCategory" ColumnName="ResourceCategory" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PW_GetResourcePath2" FunctionName="Model.Store.PW_GetResourcePath2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.PW_GetResourcePath2_Result">
+                <ScalarProperty Name="ResourcePath" ColumnName="ResourcePath" />
+                <ScalarProperty Name="ResourceCategory" ColumnName="ResourceCategory" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="LeaderID" ColumnName="LeaderID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="QuizScore" ColumnName="QuizScore" />
+                <ScalarProperty Name="QuizItem" ColumnName="QuizItem" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PW_GetVideo" FunctionName="Model.Store.PW_GetVideo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.PW_GetVideo_Result">
+                <ScalarProperty Name="ResourcePath" ColumnName="ResourcePath" />
+                <ScalarProperty Name="ResourceCategory" ColumnName="ResourceCategory" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

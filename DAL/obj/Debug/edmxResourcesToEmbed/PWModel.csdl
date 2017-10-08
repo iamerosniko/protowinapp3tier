@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PW_Answers">
+    <Key>
+      <PropertyRef Name="AnswerID" />
+    </Key>
+    <Property Name="AnswerID" Type="Guid" Nullable="false" />
+    <Property Name="QuestionID" Type="Guid" Nullable="false" />
+    <Property Name="AnswerDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsCorrect" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PW_Examinees">
+    <Key>
+      <PropertyRef Name="ExamineeID" />
+    </Key>
+    <Property Name="ExamineeID" Type="Guid" Nullable="false" />
+    <Property Name="PersonID" Type="Guid" Nullable="false" />
+    <Property Name="CodeNum" Type="Int32" />
+    <Property Name="SubjectID" Type="Guid" />
+    <Property Name="DateCompleted" Type="DateTime" Precision="3" />
+    <Property Name="Score" Type="Int32" Nullable="false" />
+    <Property Name="Items" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PW_Leaders">
+    <Key>
+      <PropertyRef Name="LeaderID" />
+    </Key>
+    <Property Name="LeaderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LeaderName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ManagerID" Type="Int32" />
+    <Property Name="LeaderResourceID" Type="Guid" />
+    <Property Name="ManagerResourceID" Type="Guid" />
+  </EntityType>
+  <EntityType Name="PW_Persons">
+    <Key>
+      <PropertyRef Name="PersonID" />
+    </Key>
+    <Property Name="PersonID" Type="Guid" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Lastname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="WorkDayNum" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PW_PersonTeams">
+    <Key>
+      <PropertyRef Name="PersonTeamID" />
+    </Key>
+    <Property Name="PersonTeamID" Type="Guid" Nullable="false" />
+    <Property Name="PersonID" Type="Guid" Nullable="false" />
+    <Property Name="TeamID" Type="Guid" />
+    <Property Name="LeaderID" Type="Guid" />
+    <Property Name="EffectiveDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PW_Questions">
+    <Key>
+      <PropertyRef Name="QuestionID" />
+    </Key>
+    <Property Name="QuestionID" Type="Guid" Nullable="false" />
+    <Property Name="QuestionDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsCommon" Type="Boolean" Nullable="false" />
+    <Property Name="IsMultipleAns" Type="Boolean" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PW_QuizTags">
+    <Key>
+      <PropertyRef Name="QuizTagID" />
+    </Key>
+    <Property Name="QuizTagID" Type="Guid" Nullable="false" />
+    <Property Name="QuestionID" Type="Guid" Nullable="false" />
+    <Property Name="SubjectID" Type="Guid" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PW_Resources">
+    <Key>
+      <PropertyRef Name="ResourceID" />
+    </Key>
+    <Property Name="ResourceID" Type="Guid" Nullable="false" />
+    <Property Name="ResourceName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ResourcePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ResourceCategory" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsUrl" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PW_Roles">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PW_Subjects">
+    <Key>
+      <PropertyRef Name="SubjectID" />
+    </Key>
+    <Property Name="SubjectID" Type="Guid" Nullable="false" />
+    <Property Name="SubjectName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PW_TeamResources">
+    <Key>
+      <PropertyRef Name="TeamResourceID" />
+    </Key>
+    <Property Name="TeamResourceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TeamID" Type="Guid" Nullable="false" />
+    <Property Name="ResourceID" Type="Guid" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PW_Teams">
+    <Key>
+      <PropertyRef Name="TeamID" />
+    </Key>
+    <Property Name="TeamID" Type="Guid" Nullable="false" />
+    <Property Name="TeamDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PW_TemporaryUsers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TeamID" Type="Guid" Nullable="false" />
+    <Property Name="LeaderID" Type="Int32" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="QuizScore" Type="Int32" Nullable="false" />
+    <Property Name="QuizItem" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PW_ViewEmployeeScore">
+    <Key>
+      <PropertyRef Name="Score" />
+      <PropertyRef Name="Items" />
+    </Key>
+    <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Score" Type="Int32" Nullable="false" />
+    <Property Name="Items" Type="Int32" Nullable="false" />
+    <Property Name="DateCompleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="PW_VW_QUESTIONS">
+    <Key>
+      <PropertyRef Name="QuestionID" />
+      <PropertyRef Name="IsCommon" />
+      <PropertyRef Name="IsMultipleAns" />
+      <PropertyRef Name="IsActive" />
+    </Key>
+    <Property Name="QuestionID" Type="Guid" Nullable="false" />
+    <Property Name="QuestionDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsCommon" Type="Boolean" Nullable="false" />
+    <Property Name="IsMultipleAns" Type="Boolean" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="PWContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="PW_Answers" EntityType="Self.PW_Answers" />
+    <EntitySet Name="PW_Examinees" EntityType="Self.PW_Examinees" />
+    <EntitySet Name="PW_Leaders" EntityType="Self.PW_Leaders" />
+    <EntitySet Name="PW_Persons" EntityType="Self.PW_Persons" />
+    <EntitySet Name="PW_PersonTeams" EntityType="Self.PW_PersonTeams" />
+    <EntitySet Name="PW_Questions" EntityType="Self.PW_Questions" />
+    <EntitySet Name="PW_QuizTags" EntityType="Self.PW_QuizTags" />
+    <EntitySet Name="PW_Resources" EntityType="Self.PW_Resources" />
+    <EntitySet Name="PW_Roles" EntityType="Self.PW_Roles" />
+    <EntitySet Name="PW_Subjects" EntityType="Self.PW_Subjects" />
+    <EntitySet Name="PW_TeamResources" EntityType="Self.PW_TeamResources" />
+    <EntitySet Name="PW_Teams" EntityType="Self.PW_Teams" />
+    <EntitySet Name="PW_TemporaryUsers" EntityType="Self.PW_TemporaryUsers" />
+    <EntitySet Name="PW_ViewEmployeeScore" EntityType="Self.PW_ViewEmployeeScore" />
+    <EntitySet Name="PW_VW_QUESTIONS" EntityType="Self.PW_VW_QUESTIONS" />
+    <FunctionImport Name="PW_GetCurrentUser" ReturnType="Collection(Model.PW_GetCurrentUser_Result)">
+      <Parameter Name="username" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PW_GetResourcePath" ReturnType="Collection(Model.PW_GetResourcePath_Result)">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="resourceCategory" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PW_GetResourcePath2" ReturnType="Collection(Model.PW_GetResourcePath2_Result)">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="resourceCategory" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PW_GetVideo" ReturnType="Collection(Model.PW_GetVideo_Result)">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="isLeader" Mode="In" Type="Boolean" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="PW_GetCurrentUser_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="FirstName" Nullable="true" />
+    <Property Type="String" Name="LastName" Nullable="true" />
+    <Property Type="Guid" Name="TeamID" Nullable="false" />
+    <Property Type="Int32" Name="LeaderID" Nullable="false" />
+    <Property Type="String" Name="Username" Nullable="true" />
+    <Property Type="Int32" Name="QuizScore" Nullable="false" />
+    <Property Type="Int32" Name="QuizItem" Nullable="false" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="PW_GetResourcePath_Result">
+    <Property Type="String" Name="ResourcePath" Nullable="true" />
+    <Property Type="String" Name="ResourceCategory" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="PW_GetResourcePath2_Result">
+    <Property Type="String" Name="ResourcePath" Nullable="true" />
+    <Property Type="String" Name="ResourceCategory" Nullable="true" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="FirstName" Nullable="true" />
+    <Property Type="String" Name="LastName" Nullable="true" />
+    <Property Type="Guid" Name="TeamID" Nullable="false" />
+    <Property Type="Int32" Name="LeaderID" Nullable="false" />
+    <Property Type="String" Name="Username" Nullable="true" />
+    <Property Type="Int32" Name="QuizScore" Nullable="false" />
+    <Property Type="Int32" Name="QuizItem" Nullable="false" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="PW_GetVideo_Result">
+    <Property Type="String" Name="ResourcePath" Nullable="true" />
+    <Property Type="String" Name="ResourceCategory" Nullable="true" />
+  </ComplexType>
+</Schema>
